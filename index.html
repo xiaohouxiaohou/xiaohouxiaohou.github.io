@@ -151,6 +151,71 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-插入排序算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/11/25/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">插入排序算法</a>
+    </h1>
+  
+
+        
+        <a href="/2019/11/25/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2019-11-25T00:42:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>   ##插入排序算法<br>   <em>前言：最近有在学习算法知识，想把学到的内容记录下来供自己以后复习，同时也将自己的见解和想法写出来供大家参考。</em></p>
+<p>   先上代码吧，代码中写有相应的分析：<br>      <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">     </span><br><span class="line">      import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">public class sy22 &#123;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	public static void insert_sort( int arr[], int len )   //插入排序算法部分</span><br><span class="line">	&#123;</span><br><span class="line">		</span><br><span class="line">		int i,j,temp;  //i,j为遍历下标的指示器，为接下来遍历比较数组元素做准备</span><br><span class="line">		for(i=1;i&lt;len;i++)   //指示器i从1开始遍历,方便它的前一个元素进行比较</span><br><span class="line">		&#123;</span><br><span class="line">			if(arr[i]&lt;arr[i-1])  //这里做一个判断，当后面的元素比前一个元素小的时候执行接下来的代码    </span><br><span class="line">			 &#123; </span><br><span class="line">				  temp=arr[i]; //可以理解成将要判断的元素提取出来    </span><br><span class="line">				</span><br><span class="line">			    for(j=i-1;j&gt;=0 &amp;&amp;arr[j]&gt;temp;j--)  </span><br><span class="line">			     &#123;</span><br><span class="line">				  arr[j+1]=arr[j];   //当它前一个元素比它大时，将它的前一个元素往后移</span><br><span class="line">			     &#125;</span><br><span class="line">			     </span><br><span class="line">			    arr[j+1]=temp;   //直到不满足for循环的条件时执行这条语句，将提取出来的元素赋值给arr[j+1]</span><br><span class="line">		     &#125;</span><br><span class="line"></span><br><span class="line">	    &#125;</span><br><span class="line">		</span><br><span class="line">		for(i=0;i&lt;len;i++)   //由于没有返回值，for循环遍历输出数组元素</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.print(arr[i]+&quot; &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">    &#125;</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		// TODO Auto-generated method stub</span><br><span class="line">        </span><br><span class="line">		int len;</span><br><span class="line">		System.out.println(&quot;请输入数组的长度：&quot;);</span><br><span class="line">		Scanner input=new Scanner(System.in);</span><br><span class="line">		len=input.nextInt();</span><br><span class="line">		int arr[]=new int[len];</span><br><span class="line">		</span><br><span class="line">		for(int i=0;i&lt;len;i++)    //随机生成将要进行排序的数组元素</span><br><span class="line">		&#123;</span><br><span class="line">			arr[i]=(int)(Math.random()*50+1);</span><br><span class="line">			for(int j=1;j&lt;i;j++)</span><br><span class="line">			&#123;</span><br><span class="line">				if(arr[j]==arr[i]) //允许出现重复元素</span><br><span class="line">				&#123;</span><br><span class="line">					continue;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			System.out.print(arr[i]+&quot; &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(&quot;\n&quot;+&quot;排序后的顺序：&quot;);</span><br><span class="line">		insert_sort(arr,len);  //调用插入排序算法进行排序</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>==注意：==<br>        在算法部分的第二个for循环里的条件 for(j=i-1;j&gt;=0 &amp;&amp;arr[j]&gt;temp;j–)中，j&gt;=0和arr[j]&gt;temp这两个条件的位置不能交换，虽然两个条件是并列关系，原因是当两个条件位置进行交换后会出现一个临界值 j=-1，算法仍然会将arr[-1]和temp进行比较，可是arr[-1]是没有值的，从而产生数组越界的错误。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/11/25/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" target="_blank" rel="noopener" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Java-语言实现在控制台打印九九乘法表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
